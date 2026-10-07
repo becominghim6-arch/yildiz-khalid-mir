@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>our first chapter. — Yildiz & Ayan</title>
+    <meta name="description" content="One month of us, and a thousand little things I already want to remember. A private anniversary story created by Ayan for Yildiz.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Sacramento&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body> 
+
+    <!-- Ambient Floating Particles Canvas -->
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+    <!-- Background Ambient Glow Effects -->
+    <div class="glow-orb orb-1" aria-hidden="true"></div>
+    <div class="glow-orb orb-2" aria-hidden="true"></div>
+    <div class="glow-orb orb-3" aria-hidden="true"></div>
+
+    <!-- Floating UI Controls (Persistent) -->
+    <aside class="floating-ui" aria-label="Audio and Chapter Navigation">
+        <!-- Floating Music Control -->
+        <button id="music-toggle" class="glass-pill music-pill" aria-label="Toggle ambient music" title="Play ambient music">
+            <span class="music-icon" aria-hidden="true">♫</span>
+            <span class="music-status">play music</span>
+            <div class="sound-wave" aria-hidden="true">
+                <span></span><span></span><span></span>
+            </div>
+        </button>
+
+        <!-- Chapter Progress Bar / Pill -->
+        <div id="chapter-indicator" class="glass-pill progress-pill" role="status" aria-live="polite">
+            <span class="chapter-dot"></span>
+            <span id="chapter-label">Chapter 0 of 8</span>
+        </div>
+    </aside>
+
+    <!-- Hidden Easter Egg Trigger (Subtle Star in Top-Right Corner) -->
+    <button id="secret-star" class="secret-star-btn" aria-label="Secret Easter Egg" title="A little secret star">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4-6.2-4.5-6.2 4.5 2.4-7.4-6.2-4.5h7.6z"/>
+        </svg>
+    </button>
+
+    <!-- Hidden Easter Egg Secret Modal -->
+    <div id="secret-modal" class="modal-backdrop" aria-hidden="true" role="dialog" aria-labelledby="secret-title">
+        <div class="modal-card glass-card">
+            <button class="modal-close" id="secret-close" aria-label="Close secret modal">&times;</button>
+            <div class="secret-icon">✨</div>
+            <h3 id="secret-title" class="serif-title">you found the secret.</h3>
+            <div class="secret-body" id="secret-text-content">
+                <p>there are probably a million things i could've put on this website.</p>
+                <p>but honestly...</p>
+                <p class="highlight-text">i just wanted you to know that i'm really, really happy it's you.</p>
+            </div>
+            <button class="btn-primary" id="secret-confirm">close 🤍</button>
+        </div>
+    </div>
+
+    <!-- MAIN CHAPTER CONTAINER -->
+    <main id="app-container">
+
+        <!-- ==========================================
+             CHAPTER 0 — THE ENTRY
+             ========================================== -->
+        <section id="chapter-0" class="chapter hero-chapter" data-chapter="0" data-title="The Entry">
+            <div class="hero-content">
+                <div class="hero-text-flow">
+                    <h1 class="hero-name fade-step step-1" id="entry-name">yildiz khalid mir.</h1>
+                    <p class="hero-subtitle fade-step step-2">before you scroll...</p>
+                    <p class="hero-message fade-step step-3">this little corner of the internet is just for you.</p>
+                </div>
+                <div class="hero-cta fade-step step-4">
+                    <button id="enter-btn" class="btn-primary glow-btn">
+                        enter our story <span class="arrow">&rarr;</span>
+                    </button>
+                </div>
+            </div>
+            <div class="hero-footer fade-step step-5">
+                <p class="tiny-caption">made by ayan, with way too much love.</p>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             CHAPTER 1 — ONE MONTH
+             ========================================== -->
+        <section id="chapter-1" class="chapter section-padding" data-chapter="1" data-title="One Month">
+            <div class="section-container text-center">
+                <span class="chapter-tag">chapter one</span>
+                <h2 class="section-title">one month.</h2>
+
+                <!-- Animated Counter Card -->
+                <div class="counter-card glass-card">
+                    <div class="counter-number" id="counter-digit">01</div>
+                    <div class="counter-label-group">
+                        <span class="counter-unit">month</span>
+                        <span class="counter-sub">of us</span>
+                    </div>
+                    <div class="counter-divider"></div>
+                    <div class="calendar-pill">
+                        <span class="calendar-date" id="anniversary-date-display">8 october 2026</span>
+                    </div>
+                </div>
+
+                <div class="prose-container">
+                    <p class="lead-text">
+                        one month sounds like such a small amount of time.
+                    </p>
+                    <p class="lead-text">
+                        but somehow, in this little amount of time, you managed to become someone whose presence feels so familiar to me.
+                    </p>
+                    <p class="lead-text">
+                        so tonight isn't really about counting days.
+                    </p>
+                    <p class="lead-text highlight-quote">
+                        it's about remembering the little moments that made those days ours.
+                    </p>
+                </div>
+
+                <div class="section-action">
+                    <button class="btn-secondary scroll-to-next" data-next="chapter-2">
+                        keep going <span class="arrow">&darr;</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             CHAPTER 2 — LITTLE THINGS
+             ========================================== -->
+        <section id="chapter-2" class="chapter section-padding" data-chapter="2" data-title="Little Things">
+            <div class="section-container">
+                <div class="text-center">
+                    <span class="chapter-tag">chapter two</span>
+                    <h2 class="section-title">things about you that i notice.</h2>
+                    <p class="section-subtitle">tap any card to reveal a little detail</p>
+                </div>
+
+                <!-- 12 Interactive Flip Cards Grid -->
+                <div class="cards-grid" id="little-things-grid">
+                    <!-- Populated dynamically via script.js from anniversaryData -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             CHAPTER 3 — OUR TIMELINE
+             ========================================== -->
+        <section id="chapter-3" class="chapter section-padding" data-chapter="3" data-title="Our Timeline">
+            <div class="section-container">
+                <div class="text-center">
+                    <span class="chapter-tag">chapter three</span>
+                    <h2 class="section-title">how we got here.</h2>
+                    <p class="section-subtitle">every step that led us to right now</p>
+                </div>
+
+                <!-- Vertical Interactive Timeline -->
+                <div class="timeline" id="timeline-container">
+                    <!-- Populated dynamically via script.js from anniversaryData -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             CHAPTER 4 — THE GALLERY WE DON'T HAVE YET
+             ========================================== -->
+        <section id="chapter-4" class="chapter section-padding" data-chapter="4" data-title="Future Gallery">
+            <div class="section-container">
+                <div class="text-center">
+                    <span class="chapter-tag">chapter four</span>
+                    <h2 class="section-title">places we haven't been yet.</h2>
+                    <p class="section-subtitle">a digital photo album representing memories we haven't made yet</p>
+                </div>
+
+                <!-- Future Memories Cards Grid -->
+                <div class="gallery-grid" id="future-gallery-grid">
+                    <!-- Populated dynamically via script.js from anniversaryData -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             CHAPTER 5 — OUR SOUNDTRACK
+             ========================================== -->
+        <section id="chapter-5" class="chapter section-padding" data-chapter="5" data-title="Our Soundtrack">
+            <div class="section-container">
+                <div class="text-center">
+                    <span class="chapter-tag">chapter five</span>
+                    <h2 class="section-title">if our first month had a soundtrack.</h2>
+                    <p class="section-subtitle">songs that carry quiet feelings and memories</p>
+                </div>
+
+                <!-- Music Track Showcase -->
+                <div class="soundtrack-container glass-card">
+                    <div class="soundtrack-header">
+                        <div class="vinyl-record" aria-hidden="true">
+                            <div class="vinyl-center"></div>
+                        </div>
+                        <div class="soundtrack-meta">
+                            <span class="soundtrack-badge">PLAYLIST FOR YILDIZ</span>
+                            <h3 class="soundtrack-title">Volume I — October 2026</h3>
+                            <p class="soundtrack-desc">Curated by Ayan • 8 tracks</p>
+                        </div>
+                    </div>
+
+                    <div class="track-list" id="track-list-container">
+                        <!-- Populated dynamically via script.js from anniversaryData -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             CHAPTER 6 — HOW WELL DO YOU KNOW ME?
+             ========================================== -->
+        <section id="chapter-6" class="chapter section-padding" data-chapter="6" data-title="Quiz Mini-Game">
+            <div class="section-container">
+                <div class="text-center">
+                    <span class="chapter-tag">chapter six</span>
+                    <h2 class="section-title">okay, your turn.</h2>
+                    <p class="section-subtitle">let's see how well you actually know me.</p>
+                </div>
+
+                <!-- Quiz Card -->
+                <div class="quiz-card glass-card" id="quiz-card">
+                    <div class="quiz-header">
+                        <span class="quiz-progress-text" id="quiz-progress">Question 1 of 10</span>
+                        <div class="quiz-progress-bar">
+                            <div class="quiz-progress-fill" id="quiz-fill" style="width: 10%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-body" id="quiz-body">
+                        <h3 class="quiz-question" id="quiz-question-text">Loading question...</h3>
+                        <div class="quiz-options" id="quiz-options-container">
+                            <!-- Options injected dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Quiz Result Display (Hidden initially) -->
+                    <div class="quiz-result hidden" id="quiz-result">
+                        <div class="result-badge" id="result-badge">Score Card</div>
+                        <div class="result-score" id="result-score-text">0 / 10</div>
+                        <h3 class="result-title" id="result-title">Calculating...</h3>
+                        <p class="result-message" id="result-message-text"></p>
+                        <button class="btn-primary" id="quiz-retry-btn">try again ↻</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             CHAPTER 7 — A LETTER FOR YOU
+             ========================================== -->
+        <section id="chapter-7" class="chapter section-padding" data-chapter="7" data-title="A Letter For You">
+            <div class="section-container text-center">
+                <span class="chapter-tag">chapter seven</span>
+
+                <!-- Envelope Container -->
+                <div class="envelope-wrapper" id="envelope-wrapper">
+                    <div class="envelope-teaser" id="envelope-teaser">
+                        <h2 class="section-title">there's one last thing.</h2>
+                        <p class="section-subtitle">a private letter written just for you</p>
+                        <button id="open-envelope-btn" class="btn-primary glow-btn">
+                            open this when you're ready ✉️
+                        </button>
+                    </div>
+
+                    <!-- Interactive 3D Envelope -->
+                    <div class="envelope-card hidden" id="envelope-card">
+                        <div class="envelope-flap" id="envelope-flap">
+                            <div class="wax-seal" id="wax-seal">🤍</div>
+                        </div>
+                        <div class="letter-paper glass-card" id="letter-paper">
+                            <div class="letter-header">
+                                <span class="letter-date">October 8, 2026</span>
+                            </div>
+                            <div class="letter-content" id="letter-text-container">
+                                <!-- Injected dynamically from anniversaryData.letter -->
+                            </div>
+                            <div class="letter-signature">
+                                <p>happy one month, yildiz.</p>
+                                <p class="sig-love">i love you.</p>
+                                <p class="sig-name">— ayan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             CHAPTER 8 — THE NEXT CHAPTER
+             ========================================== -->
+        <section id="chapter-8" class="chapter hero-chapter" data-chapter="8" data-title="The Next Chapter">
+            <div class="hero-content text-center">
+                <span class="chapter-tag">chapter eight</span>
+                <h2 class="section-title">chapter one complete.</h2>
+                <p class="section-subtitle">ready for chapter two?</p>
+
+                <!-- Screenshot Showcase -->
+                <div class="chapter-screenshot-card glass-card">
+                    <img src="assets/screenshot.jpeg" alt="Our Special Memory" class="chapter-screenshot-img" loading="lazy">
+                </div>
+
+                <!-- Counter Shift -->
+                <div class="next-counter-card glass-card">
+                    <div class="counter-shift">
+                        <span class="count-old">30</span>
+                        <span class="count-arrow">&rarr;</span>
+                        <span class="count-new">31</span>
+                    </div>
+                    <span class="counter-sub">days &amp; counting</span>
+                </div>
+
+                <div class="prose-container ending-prose">
+                    <p class="lead-text">one month down.</p>
+                    <p class="lead-text">hopefully, a lot more to go.</p>
+                    <p class="final-wish">happy one month, yildiz. 🤍</p>
+                    <p class="final-author">— ayan</p>
+                </div>
+
+                <div class="ending-action">
+                    <button id="restart-btn" class="btn-secondary">
+                        start again ↻
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Hidden Audio Element -->
+    <audio id="ambient-audio" loop preload="auto">
+        <source src="assets/song.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
